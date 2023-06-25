@@ -42,6 +42,7 @@ namespace DoctorWhoData
             .WithMany(e=>e.Episodes)
             .UsingEntity<EpisodeEnemy>();
 
+            Seeder.Seed(modelBuilder);
     }
     }
 }

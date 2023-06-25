@@ -13,9 +13,9 @@ namespace DoctorWhoDomain
         Enemies = new List<Enemy>();
         }
         public int EpisodeId { get; set; }
-        public string SeriesNumber { get; set; }
-        public string EpisodeNumber { get; set; }
-        public string EpisodeType  { get; set; }
+        public int SeriesNumber { get; set; }
+        public int Number { get; set; }
+        public string Type  { get; set; }
         public string Title { set; get; }
         public DateTime EpisodeDate { set; get; }
         public int AuthorId { set; get; }

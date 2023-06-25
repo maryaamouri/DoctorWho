@@ -1,5 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using DoctorWhoDomain;
+using System.Reflection.Metadata;
+
 namespace DoctorWhoData
 {
     public class DoctorWhoDBContext : DbContext
@@ -18,5 +20,28 @@ namespace DoctorWhoData
               "Data Source = (localdb)\\MSSQLLocalDB; Initial Catalog = DoctorWhoDB"
             );
         }
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+         modelBuilder.Entity<Doctor>()
+            .HasMany(e => e.Episodes)
+            .WithOne(e => e.doctor)
+            .IsRequired();
+
+        modelBuilder.Entity<Author>()
+            .HasMany(e => e.Episodes)
+            .WithOne(e => e.author)
+            .IsRequired();
+
+        modelBuilder.Entity<Episode>()
+            .HasMany(e => e.Companions)
+            .WithMany(e => e.Episodes)
+            .UsingEntity<EpisodeCompanion>();
+
+        modelBuilder.Entity<Episode>()
+            .HasMany(e=>e.Enemies)
+            .WithMany(e=>e.Episodes)
+            .UsingEntity<EpisodeEnemy>();
+
+    }
     }
 }

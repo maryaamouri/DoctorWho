@@ -8,8 +8,12 @@ namespace DoctorWhoDomain
 {
     public class Companion
     {
+        public Companion() {
+            Episodes = new List<Episode>();
+        }
         public int CompanionId { set; get; }
         public string Name { set; get;}
         public string WhoPlayed { set; get;}
+        public IList<Episode> Episodes;
     }
 }

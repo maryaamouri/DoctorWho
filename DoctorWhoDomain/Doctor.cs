@@ -9,11 +9,15 @@ namespace DoctorWhoDomain
 {
     public class Doctor
     {
-        public int DocotId { get; set; }
+        public Doctor() {
+         Episodes = new List<Episode>();
+        }
+        public int DoctorId { get; set; }
         public string number { get; set; }
         public string name { get; set; }
         public DateTime BirthDate { get; set; }
         public DateTime FirstEpisodeDate { get; set; }
         public DateTime LastEpisodeDate { get; set; }
+        public IList<Episode> Episodes;
     }
 }

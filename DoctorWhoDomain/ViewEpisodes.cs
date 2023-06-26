@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DoctorWhoDomain
 {
-    public class ViewEpisodes
+    public class ViewEpisode
     {
         public Episode Episode { get; set; }
         public string? Authors{ get; set; }

@@ -13,6 +13,7 @@ namespace DoctorWhoData
         public DbSet<Episode> Episodes { get; set;}
         public DbSet<EpisodeEnemy> EpisodeEnemies { get;set; }
         public DbSet<EpisodeCompanion> EpisodeCompanions { get;set; }
+        public DbSet<ViewEpisodes> ViewEpisodes { get;set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -41,7 +42,9 @@ namespace DoctorWhoData
             .HasMany(e=>e.Enemies)
             .WithMany(e=>e.Episodes)
             .UsingEntity<EpisodeEnemy>();
-
+            modelBuilder.Entity<ViewEpisodes>()
+                    .HasNoKey()
+                    .ToView("ViewEpisodes");
             Seeder.Seed(modelBuilder);
     }
     }

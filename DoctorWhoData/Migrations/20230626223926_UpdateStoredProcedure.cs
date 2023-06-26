@@ -6,9 +6,9 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace DoctorWhoData.Migrations
 {
 
-    public partial class Createprocedure : Migration
+    public partial class UpdateStoredProcedure : Migration
     {
-       
+
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.Sql(
@@ -19,7 +19,7 @@ namespace DoctorWhoData.Migrations
 	                    SELECT TOP 3 c.CompanionId, c.Name, COUNT(ec.CompanionId) AS AppearanceCount
 	                    FROM EpisodeCompanions ec
 	                    JOIN Companions c ON c.CompanionId = ec.CompanionId
-	                    GROUP BY c.CompanionId, c.CompanyName
+	                    GROUP BY c.CompanionId, c.Name
 	                    ORDER BY AppearanceCount DESC;
 
 	                    SELECT TOP 3 en.EnemyId, en.Name, COUNT(*) AS AppearanceCount

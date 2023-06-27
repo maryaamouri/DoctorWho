@@ -2,7 +2,7 @@
 {
     public interface IEpisodeRepo<T> : IRepo<T> where T : class
     {
-        public void AddCompanionToEpisode(T Entity);
-        public void AddEnemyToEpisode(T Entity);
+        public void AddCompanionToEpisodeAsync(Episode episode, Companion companion);
+        public void AddEnemyToEpisodeAsync(Episode episode, Enemy enemy);
     }
 }
